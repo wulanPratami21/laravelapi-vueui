@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Createfriends from '../views/Createfriends.vue'
-import Editfriends from '../views/Editfriends.vue'
+import Home from '../views/friends/Home.vue'
+import Createfriends from '../views/friends/Createfriends.vue'
+import Editfriends from '../views/friends/Editfriends.vue'
+
 
 const routes = [
   {
@@ -18,7 +19,7 @@ const routes = [
     component: Createfriends
   },
   {
-    path: '/editfriends',
+    path: '/editfriends/:id',
     name: 'Editfriends',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
