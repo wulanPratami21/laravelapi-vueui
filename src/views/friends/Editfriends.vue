@@ -14,9 +14,9 @@
   <div class="col-md-6">
     <label for="inputPassword4" class="form-label">No Tlp</label>
     <input type="number" class="form-control" id="inputPassword4"
-    v-model="friend.no_tlp"/>
-    <div class="alert alert-danger" v-if="validation.no_tlp">
-        {{ validation.no_tlp[0] }}
+    v-model="friend.no_telp"/>
+    <div class="alert alert-danger" v-if="validation.no_telp">
+        {{ validation.no_telp[0] }}
       </div>
   </div>
   <div class="col-12">
@@ -46,7 +46,7 @@ export default {
 
     const friend = reactive({
       nama: '',
-      no_tlp: '',
+      no_telp: '',
       alamat: ''
     })
 
@@ -57,12 +57,12 @@ export default {
     const route = useRoute()
 
     onMounted(()=>{
-      axios.get(`http://pia.labirin.co.id/api/friends/${route.params.id}`)
+      axios.get(`http://127.0.0.1:8000/api/friends/${route.params.id}`)
       .then(response => {
         console.log(response.data.data.nama)
 
         friend.nama = response.data.data.nama
-        friend.no_tlp = response.data.data.no_tlp
+        friend.no_telp = response.data.data.no_telp
         friend.alamat = response.data.data.alamat
       }).catch(error =>{
         console.log(error.response.data)
@@ -71,12 +71,12 @@ export default {
 
     function update(){
       let nama = friend.nama
-      let no_tlp = friend.no_tlp
+      let no_telp = friend.no_telp
       let alamat = friend.alamat
 
-      axios.put(`http://pia.labirin.co.id/api/friends/${route.params.id}`, {
+      axios.put(`http://127.0.0.1:8000/api/friends/${route.params.id}`, {
         nama: nama,
-        no_tlp: no_tlp,
+        no_telp: no_telp,
         alamat: alamat
       })
       .then(() => {
