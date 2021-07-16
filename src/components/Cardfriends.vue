@@ -4,8 +4,9 @@
 <div class="card">
   <div class="card-header">{{friend.nama}}</div>
   <div class="card-body">
-    <h5 class="card-title">{{friend.no_telp}}</h5>
+    <h5 class="card-title">{{friend.no_tlp}}</h5>
     <p class="card-text">{{friend.alamat}}</p>
+    <p class="card-text">{{friend.groups.name}}</p>
   </div>
   <div class="card-footer text-muted">
     <router-link class="btn btn-primary" :to="{name:'Detailfriends', params:{id:friend.id}}">Detail</router-link>
@@ -20,4 +21,3 @@ export default {
     props: ["friends"],
 };
 </script>
-
