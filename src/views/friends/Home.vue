@@ -7,7 +7,7 @@
 
       <Cardfriends :friends="friends" />
 
-    <table class="table">
+    <!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">Nama</th>
@@ -27,7 +27,7 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->
   </div>
 </template>
 
@@ -37,7 +37,6 @@ import axios from 'axios'
 import Slider from "@/components/Slider.vue";
 import Cardfriends from "@/components/Cardfriends.vue";
 import { ref, onMounted } from 'vue';
-
 export default {
   name: "Home",
   components: {
@@ -46,7 +45,6 @@ export default {
   },
   setup(){
     let friends = ref([])
-
     onMounted(() => {
       axios.get('http://127.0.0.1:8000/api/friends')
       .then(response => {
@@ -56,7 +54,6 @@ export default {
         console.log(error)
       })
     })
-
     function friendDelete(id){
       axios.delete(`http://127.0.0.1:8000/api/friends/${id}`)
       .then(()=>{
@@ -66,7 +63,6 @@ export default {
         console.log(error)
       })
     }
-
       return {
       friends,
       friendDelete
